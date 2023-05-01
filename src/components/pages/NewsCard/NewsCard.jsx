@@ -35,7 +35,7 @@ const NewsCard = ({ news }) => {
                     <hr />
                     <div className="flex justify-between p-5 ">
                         <div className='flex items-center gap-3'>
-                        <Rating style={{ maxWidth: 100 }} value={rating?.number} readonly />
+                        <Rating style={{ maxWidth: 100 }} value={Math.round(rating?.number) || 0} readonly />
                             <span className='ms-2'>{rating?.number}</span>
                         </div>
                         <div className=" flex items-center gap-3">
