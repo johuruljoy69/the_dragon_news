@@ -11,6 +11,7 @@ import News from '../components/pages/News/News';
 import LoginLayout from '../layouts/LoginLayout';
 import Login from '../components/pages/LoginAndRegister/Login';
 import Register from '../components/pages/LoginAndRegister/Register';
+import PrivateRoutes from './PrivateRoutes';
 
 const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://the-dragon-news-server-johuruljoy69.vercel.app/categories/${params.id}`)
             }
         ]
     },
@@ -50,8 +51,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ':id',
-                element: <News></News>,
-                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+                element: <PrivateRoutes><News></News></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://the-dragon-news-server-johuruljoy69.vercel.app/news/${params.id}`)
             }
         ]
     }

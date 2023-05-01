@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 
 const NewsCard = ({ news }) => {
     const { _id, title, details, image_url, author, total_view, rating } = news;
@@ -33,13 +35,7 @@ const NewsCard = ({ news }) => {
                     <hr />
                     <div className="flex justify-between p-5 ">
                         <div className='flex items-center gap-3'>
-                            <Rating
-                                placeholderRating={rating.number}
-                                readonly
-                                emptySymbol={<FaRegStar />}
-                                placeholderSymbol={<FaStar className='text-orange-500'></FaStar>}
-                                fullSymbol={<FaStar />}
-                            />
+                        <Rating style={{ maxWidth: 100 }} value={rating?.number} readonly />
                             <span className='ms-2'>{rating?.number}</span>
                         </div>
                         <div className=" flex items-center gap-3">
